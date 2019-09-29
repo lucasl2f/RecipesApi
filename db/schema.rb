@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_190838) do
+ActiveRecord::Schema.define(version: 2019_09_29_195604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-# Could not dump table "recipes" because of following StandardError
-#   Unknown type 'recipe_category' for column 'category'
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "ingredients"
+    t.text "how_to"
+    t.json "metadata"
+    t.integer "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

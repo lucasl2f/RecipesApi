@@ -1,6 +1,5 @@
 module Api::V1
-  class ApplicationController < ActionController
-    # Global Methods
+  class ApiController < ApplicationController
     acts_as_token_authentication_handler_for User
     before_action :require_authentication!
  
