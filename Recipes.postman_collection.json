@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "c0c1298e-3c4f-4aa3-b6cb-4cb326a618f8",
+		"name": "Recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Show recipes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-Email",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "salad",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/recipes?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"recipes"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "ingredients",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "",
+							"description": "starter, salad, main_dish, dessert, beverage, drink",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all recipes"
+			},
+			"response": []
+		},
+		{
+			"name": "Show desired recipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-Email",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "salad",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/recipes/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"recipes",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "ingredient",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "",
+							"description": "starter, salad, main_dish, dessert, beverage, drink",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get a desired recipe by passing its id, name, ingredient or category"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new recipe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Email",
+						"type": "text",
+						"value": ""
+					},
+					{
+						"key": "X-User-Token",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"recipes"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "",
+							"description": "ex: apple juice",
+							"disabled": true
+						},
+						{
+							"key": "ingredients",
+							"value": "",
+							"description": "ex: {apple,water,sugar}",
+							"disabled": true
+						},
+						{
+							"key": "how _to",
+							"value": "",
+							"description": "ex: Blend everything together",
+							"disabled": true
+						},
+						{
+							"key": "metadata",
+							"value": "",
+							"description": "ex: {\"portion\": 5}",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "",
+							"description": "starter, salad, main_dish, dessert, beverage, drink",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a new recipe"
+			},
+			"response": []
+		},
+		{
+			"name": "Update recipe",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-User-Email",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-User-Token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/recipes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"recipes",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "",
+							"description": "ex: apple juice",
+							"disabled": true
+						},
+						{
+							"key": "ingredients",
+							"value": "",
+							"description": "ex: {apple,water,sugar}",
+							"disabled": true
+						},
+						{
+							"key": "how _to",
+							"value": "",
+							"description": "ex: Blend everything together",
+							"disabled": true
+						},
+						{
+							"key": "metadata",
+							"value": "",
+							"description": "ex: {\"portion\": 5}",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "",
+							"description": "starter, salad, main_dish, dessert, beverage, drink",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a recipe by passing its ID in the URL and filling in the parameters"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

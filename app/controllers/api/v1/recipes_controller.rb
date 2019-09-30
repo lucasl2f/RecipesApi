@@ -4,8 +4,22 @@ class Api::V1::RecipesController < Api::V1::ApiController
 
   # GET /api/v1/recipes
   def index
-    recipes = Recipe.order('created_at DESC')
-    render json: {status: 'SUCCESS', message: 'Loaded recipes', data:recipes}, status: :ok
+    if params[:id] != nil
+      recipe = Recipe.where('id = ?', params[:id])
+      render json: {status: 'SUCCESS', message: 'Loaded recipe', data:recipe}, status: :ok
+    elsif params[:name] != nil
+      recipe = Recipe.where('name = ?', params[:name])
+      render json: {status: 'SUCCESS', message: 'Loaded recipe', data:recipe}, status: :ok
+    elsif params[:ingredient] != nil
+      recipe = Recipe.where('? = any(ingredients)', params[:ingredient])
+      render json: {status: 'SUCCESS', message: 'Loaded recipe', data:recipe}, status: :ok
+    elsif params[:category] != nil
+      recipe = Recipe.where('category = ?', Recipe.categories[params[:category]])
+      render json: {status: 'SUCCESS', message: 'Loaded recipe', data:recipe}, status: :ok
+    else
+      recipes = Recipe.order('created_at DESC')
+      render json: {status: 'SUCCESS', message: 'Loaded recipes', data:recipes}, status: :ok
+    end
   end
 
 
@@ -31,7 +45,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
  
   # DELETE /api/v1/recipes/1 
   def destroy
-    recipe = Recipe.fin(params[:id])
+    recipe = Recipe.find(params[:id])
     recipe.destroy
     render json:{status: 'SUCCESS', message: 'Deleted recipe', data:recipe}, status: :ok
   end
@@ -39,7 +53,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
 
   # PUT /api/v1/recipes/1
   def update
-    recipe = Recipe.fin(params[:id])
+    recipe = Recipe.find(params[:id])
     if recipe.update_attributes(recipe_params)
       render json:{status: 'SUCCESS', message: 'Updated recipe', data:recipe}, status: :ok
     else
